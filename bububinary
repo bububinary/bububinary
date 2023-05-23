@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Расшифровка бинарного кода</title>
+  <script>
+    function binaryToText() {
+      var binaryInput = document.getElementById('binaryInput').value;
+      binaryInput = binaryInput.replace(/b/g, '1');
+      binaryInput = binaryInput.replace(/u/g, '0');
+      var binaryCode = parseInt(binaryInput, 2);
+
+      function binaryToString(binaryString) {
+        var binaryArray = binaryString.split(' ');
+        var text = '';
+        for (var i = 0; i < binaryArray.length; i++) {
+          var decimalValue = parseInt(binaryArray[i], 2);
+          var character = String.fromCharCode(decimalValue);
+          text += character;
+        }
+        return text;
+      }
+
+      var decodedText = binaryToString(String(binaryCode));
+      document.getElementById('decodedText').textContent = decodedText;
+    }
+  </script>
+</head>
+<body>
+  <h1>Расшифровка бинарного кода</h1>
+  <label for="binaryInput">Введите бинарный код:</label>
+  <input type="text" id="binaryInput">
+  <button onclick="binaryToText()">Расшифровать</button>
+  <p id="decodedText"></p>
+</body>
+</html>
