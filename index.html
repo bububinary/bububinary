@@ -9,14 +9,14 @@
       for (var i = 0; i < textInput.length; i++) {
         var charCode = textInput.charCodeAt(i);
         var binaryChar = charCode.toString(2);
-        binaryCode += binaryChar.padStart(8, '0') + ' ';
+        binaryCode += 'bububu ' + binaryChar.padStart(8, '0') + ' ';
       }
       document.getElementById('binaryOutput').textContent = binaryCode;
     }
 
     function binaryToText() {
       var binaryInput = document.getElementById('binaryInput').value;
-      binaryInput = binaryInput.replace(/\s/g, '');
+      binaryInput = binaryInput.replace(/bububu /g, '');
       var binaryArray = binaryInput.match(/.{1,8}/g);
       var text = '';
       for (var i = 0; i < binaryArray.length; i++) {
