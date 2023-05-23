@@ -8,8 +8,11 @@
       var binaryCode = '';
       for (var i = 0; i < textInput.length; i++) {
         var character = textInput.charAt(i);
-        var binaryChar = character === '1' ? 'b' : 'u';
-        binaryCode += binaryChar;
+        if (character === 'b') {
+          binaryCode += '1';
+        } else if (character === 'u') {
+          binaryCode += '0';
+        }
       }
       document.getElementById('binaryOutput').textContent = binaryCode;
     }
@@ -19,8 +22,11 @@
       var text = '';
       for (var i = 0; i < binaryInput.length; i++) {
         var binaryChar = binaryInput.charAt(i);
-        var character = binaryChar === 'b' ? '1' : '0';
-        text += character;
+        if (binaryChar === '1') {
+          text += 'b';
+        } else if (binaryChar === '0') {
+          text += 'u';
+        }
       }
       document.getElementById('textOutput').textContent = text;
     }
