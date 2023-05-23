@@ -1,35 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Расшифровка бинарного кода</title>
+  <title>Шифрование и расшифровка бинарного кода</title>
   <script>
+    function textToBinary() {
+      var textInput = document.getElementById('textInput').value;
+      var binaryCode = '';
+      for (var i = 0; i < textInput.length; i++) {
+        var charCode = textInput.charCodeAt(i);
+        var binaryChar = charCode.toString(2);
+        binaryCode += binaryChar.padStart(8, '0') + ' ';
+      }
+      document.getElementById('binaryOutput').textContent = binaryCode;
+    }
+
     function binaryToText() {
       var binaryInput = document.getElementById('binaryInput').value;
-      binaryInput = binaryInput.replace(/b/g, '1');
-      binaryInput = binaryInput.replace(/u/g, '0');
-      var binaryCode = parseInt(binaryInput, 2);
-
-      function binaryToString(binaryString) {
-        var binaryArray = binaryString.split(' ');
-        var text = '';
-        for (var i = 0; i < binaryArray.length; i++) {
-          var decimalValue = parseInt(binaryArray[i], 2);
-          var character = String.fromCharCode(decimalValue);
-          text += character;
-        }
-        return text;
+      binaryInput = binaryInput.replace(/\s/g, '');
+      var binaryArray = binaryInput.match(/.{1,8}/g);
+      var text = '';
+      for (var i = 0; i < binaryArray.length; i++) {
+        var binaryChar = binaryArray[i];
+        var charCode = parseInt(binaryChar, 2);
+        var character = String.fromCharCode(charCode);
+        text += character;
       }
-
-      var decodedText = binaryToString(String(binaryCode));
-      document.getElementById('decodedText').textContent = decodedText;
+      document.getElementById('textOutput').textContent = text;
     }
   </script>
 </head>
 <body>
-  <h1>Расшифровка бинарного кода</h1>
+  <h1>Шифрование и расшифровка бинарного кода</h1>
+  
+  <h2>Шифрование текста в бинарный код</h2>
+  <label for="textInput">Введите текст:</label>
+  <input type="text" id="textInput">
+  <button onclick="textToBinary()">Шифровать</button>
+  <p id="binaryOutput"></p>
+
+  <h2>Расшифровка бинарного кода в текст</h2>
   <label for="binaryInput">Введите бинарный код:</label>
   <input type="text" id="binaryInput">
   <button onclick="binaryToText()">Расшифровать</button>
-  <p id="decodedText"></p>
+  <p id="textOutput"></p>
 </body>
 </html>
