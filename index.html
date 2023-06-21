@@ -1,50 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Шифрование и расшифровка бинарного кода</title>
-  <script>
-    function textToBinary() {
-      var textInput = document.getElementById('textInput').value;
-      var binaryCode = '';
-      for (var i = 0; i < textInput.length; i++) {
-        var character = textInput.charAt(i);
-        if (character === 'b') {
-          binaryCode += '1';
-        } else if (character === 'u') {
-          binaryCode += '0';
-        }
-      }
-      document.getElementById('binaryOutput').textContent = binaryCode;
-    }
+	<title>Pure CSS Animated Gradient Background</title>
+	<style>
+		/* CSS code for the animated gradient background */
 
-    function binaryToText() {
-      var binaryInput = document.getElementById('binaryInput').value;
-      var text = '';
-      for (var i = 0; i < binaryInput.length; i++) {
-        var binaryChar = binaryInput.charAt(i);
-        if (binaryChar === '1') {
-          text += 'b';
-        } else if (binaryChar === '0') {
-          text += 'u';
-        }
-      }
-      document.getElementById('textOutput').textContent = text;
-    }
-  </script>
+		html, body {
+			height: 100%;
+			margin: 0;
+			overflow: hidden;
+		}
+
+		body {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: linear-gradient(45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+			background-size: 800% 800%;
+			animation: gradient 15s ease infinite;
+		}
+
+		@keyframes gradient {
+			0% {
+				background-position: 0% 50%;
+			}
+			50% {
+				background-position: 100% 50%;
+			}
+			100% {
+				background-position: 0% 50%;
+			}
+		}
+
+		/* Additional CSS styles for the content */
+
+		.container {
+			text-align: center;
+		}
+
+		.btn-group {
+			margin-top: 2em;
+			margin-bottom: 4em;
+		}
+
+		.btn {
+			display: block;
+			margin-bottom: 1em;
+			color: #fff;
+			border: 1px solid #fff;
+			padding: 0.5em 1em;
+			text-decoration: none;
+		}
+
+		.btn i {
+			margin-right: 0.5em;
+		}
+
+		.text-light {
+			color: #fff;
+		}
+
+		.small {
+			font-size: 0.8em;
+		}
+
+		.font-weight-bold {
+			font-weight: bold;
+		}
+	</style>
 </head>
 <body>
-  <h1>Шифрование и расшифровка бинарного кода</h1>
-  
-  <h2>Шифрование текста в бинарный код</h2>
-  <label for="textInput">Введите текст:</label>
-  <input type="text" id="textInput">
-  <button onclick="textToBinary()">Шифровать</button>
-  <p id="binaryOutput"></p>
+	<div class="container">
+		<h1 class="text-light">Pure CSS Animated Gradient Background</h1>
 
-  <h2>Расшифровка бинарного кода в текст</h2>
-  <label for="binaryInput">Введите бинарный код:</label>
-  <input type="text" id="binaryInput">
-  <button onclick="binaryToText()">Расшифровать</button>
-  <p id="textOutput"></p>
+		<div class="btn-group mt-2 mb-4" role="group" aria-label="actionButtons">
+			<a href="https://codepen.io/P1N2O" target="_blank" class="d-block btn btn-outline-light"><i class="fas fa-th mr-2"></i>View other Works</a>
+			<a href="https://manuelpinto.in/" target="_blank" class="d-block btn btn-outline-light">Visit my Website<i class="fas fa-external-link-square-alt ml-2"></i></a>
+		</div>
+
+		<h6 class="text-light small font-weight-bold"><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by Manuel Pinto</h6>
+	</div>
 </body>
 </html>
